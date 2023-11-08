@@ -13,3 +13,9 @@
 footer {
   margin-top: auto;
 }
+
+footer .moreOptions,
+footer .moreOptions:hover,
+footer .moreOptions:focus {
+  color: #aeadad;
+}
