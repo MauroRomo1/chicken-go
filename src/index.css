@@ -14,8 +14,43 @@ footer {
   margin-top: auto;
 }
 
+footer .logoFooter {
+  width: 150px;
+  height: 150px;
+  transition: 1s;
+}
+footer .logoFooter:hover {
+  transform: rotate(330deg);
+}
+
 footer .moreOptions,
 footer .moreOptions:hover,
 footer .moreOptions:focus {
   color: #aeadad;
+}
+
+footer .facebookSocial {
+  color: #0866ff;
+}
+footer .facebookSocial:hover,
+footer .facebookSocial:focus {
+  color: #0866ff;
+}
+footer .twitterSocial {
+  color: #1da1f2;
+}
+footer .twitterSocial:hover,
+footer .twitterSocial:focus {
+  color: #1da1f2;
+}
+footer .instagramSocial {
+  color: #fd1d1d;
+}
+footer .instagramSocial:hover,
+footer .instagramSocial:focus {
+  color: #fd1d1d;
+}
+
+footer .bg-copyright {
+  background-color: #bd2000;
 }
