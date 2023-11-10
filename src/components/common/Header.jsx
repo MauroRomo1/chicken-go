@@ -4,15 +4,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-  const [userLogin, setuserLogin] = useState({
-    id: 1,
-    name: "Mauro",
-    lastname: "Romo",
-    email: "mauroPrueba@prueba.com",
-    password: "123456Aa",
-    rol: "Administrador",
-    state: true,
-  });
+  const [userLogin, setuserLogin] = useState(null);
 
   return (
     <header>
