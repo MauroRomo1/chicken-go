@@ -1,3 +1,4 @@
+import "../../styles/register.css";
 import {
   faCircleUser,
   faEnvelope,
@@ -18,18 +19,20 @@ const Register = () => {
         <div className="col-11 border shadow">
           <div className="row">
             <div className="col-12 col-lg-6 border">
-              <img
-                src="https://www.pngkey.com/png/detail/233-2332677_ega-png.png"
-                alt=""
-                className="img-fluid"
-              />
-              <h5 className="text-center my-3">
-                regístrate y disfruta de los mejores beneficios
-              </h5>
+              <div className=" d-flex align-items-center">
+                <img
+                  src="/chicken-register.png"
+                  alt="un celular y un pollo dando el Okay"
+                  className="img-fluid mx-auto d-block p-3 chickienRegister"
+                />
+              </div>
+              <h6 className="text-center my-3">
+              REGÍSTRATE Y DISFRUTA DE LOS MEJORES BENEFICIOS
+              </h6>
             </div>
             <div className="col-12 col-lg-6 border">
               <h6 className="text-center my-3">Formulario para registrarse</h6>
-              <Form noValidate>
+              <Form className="formRegister" noValidate>
                 <Form.Group className="mb-3" controlId="name">
                   <Form.Label>
                     <FontAwesomeIcon icon={faCircleUser} className="me-2" />
@@ -76,10 +79,15 @@ const Register = () => {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="checkTerms">
-                  <Form.Check type="checkbox" label="Aceptó los términos y condiciones" />
+                  <Form.Check
+                    type="checkbox"
+                    label="Aceptó los términos y condiciones"
+                  />
                 </Form.Group>
                 <div className="d-grid mx-auto col col-md-8 my-3">
-                  <Button type="submit">Regístrarse</Button>
+                  <Button className="btnSubmit" type="submit">
+                    Regístrarse
+                  </Button>
                 </div>
               </Form>
             </div>
