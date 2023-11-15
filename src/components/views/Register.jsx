@@ -23,6 +23,7 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (user) => {
+    user.rol = "usuario";
     console.log(user);
   };
 
@@ -31,20 +32,17 @@ const Register = () => {
       <div className="row justify-content-center">
         <div className="col-11 border shadow">
           <div className="row">
-            <div className="col-12 col-lg-6 border">
-              <div className=" d-flex align-items-center">
-                <img
-                  src="/chicken-register.png"
-                  alt="un celular y un pollo dando el Okay"
-                  className="img-fluid mx-auto d-block p-3 chickienRegister"
-                />
-              </div>
-              <h6 className="text-center my-3">
-                REGÍSTRATE Y DISFRUTA DE LOS MEJORES BENEFICIOS
-              </h6>
+            <div className="col-12 col-lg-6 d-flex align-items-center border">
+              <img
+                src="/chicken-register.png"
+                alt="un celular y un pollo dando el Okay"
+                className="img-fluid mx-auto d-block p-3 chickienRegister"
+              />
             </div>
             <div className="col-12 col-lg-6 border">
-              <h6 className="text-center my-3">Formulario para registrarse</h6>
+              <h6 className="text-center my-3">
+                Regístrate y disfruta de los mejores beneficios
+              </h6>
               <Form
                 className="formRegister"
                 noValidate
@@ -60,7 +58,20 @@ const Register = () => {
                     isInvalid={errors.name}
                     placeholder="Ingrese su nombre"
                     {...register("name", {
-                      required: "El nombre es un dato obligatorio",
+                      required: "El nombre es un dato obligatorio.",
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Solo se permiten letras en el nombre.",
+                      },
+                      minLength: {
+                        value: 2,
+                        message: "El nombre debe de tener minimo 2 caracteres.",
+                      },
+                      maxLength: {
+                        value: 20,
+                        message:
+                          "El nombre debe de tener maximo 20 caracteres.",
+                      },
                     })}
                   />
                   <Form.Control.Feedback type="invalid">
@@ -78,7 +89,21 @@ const Register = () => {
                     isInvalid={errors.lastname}
                     placeholder="Ingrese su apelido"
                     {...register("lastname", {
-                      required: "El apellido es un dato obligatorio",
+                      required: "El apellido es un dato obligatorio.",
+                      pattern: {
+                        value: /^[A-Za-z]+$/i,
+                        message: "Solo se permiten letras en el apellido.",
+                      },
+                      minLength: {
+                        value: 2,
+                        message:
+                          "El apellido debe de tener minimo 2 caracteres.",
+                      },
+                      maxLength: {
+                        value: 20,
+                        message:
+                          "El apellido debe de tener maximo 20 caracteres.",
+                      },
                     })}
                   />
                   <Form.Control.Feedback type="invalid">
@@ -96,7 +121,22 @@ const Register = () => {
                     isInvalid={errors.email}
                     placeholder="Ingrese su email"
                     {...register("email", {
-                      required: "El correo electronico es un dato obligatorio",
+                      required: "El correo electronico es un dato obligatorio.",
+                      pattern: {
+                        value: /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/i,
+                        message:
+                          "El correo electrónico no cumple con un formato valido.",
+                      },
+                      minLength: {
+                        value: 6,
+                        message:
+                          "El correo electrónico debe de tener minimo 6 caracteres.",
+                      },
+                      maxLength: {
+                        value: 100,
+                        message:
+                          "El correo electrónico debe de tener maximo 100 caracteres.",
+                      },
                     })}
                   />
                   <Form.Control.Feedback type="invalid">
@@ -114,7 +154,22 @@ const Register = () => {
                     isInvalid={errors.password}
                     placeholder="Ingrese una contraseña"
                     {...register("password", {
-                      required: "La contraseña es un dato obligatorio",
+                      required: "La contraseña es un dato obligatorio.",
+                      minLength: {
+                        value: 8,
+                        message:
+                          "La contraseña debe de de tener minimo 8 caracteres.",
+                      },
+                      maxLength: {
+                        value: 50,
+                        message:
+                          "La contraseña debe de de tener maximo 50 caracteres.",
+                      },
+                      pattern: {
+                        value: /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S+$/,
+                        message:
+                          "La contraseña debe tener al menos un dígito, al menos una minúscula y al menos una mayúscula.",
+                      },
                     })}
                   />
                   <Form.Control.Feedback type="invalid">
@@ -131,7 +186,11 @@ const Register = () => {
                     isInvalid={errors.passwordConfirm}
                     placeholder="Repita la contraseña"
                     {...register("passwordConfirm", {
-                      required: "La repeticion de la contraseña es obligatoria",
+                      required:
+                        "La repeticion de la contraseña es obligatoria.",
+                      validate: (value) =>
+                        value === watch("password") ||
+                        "Las contraseñas no coinciden.",
                     })}
                   />
                   <Form.Control.Feedback type="invalid">
@@ -145,7 +204,7 @@ const Register = () => {
                     isInvalid={errors.checkTerms}
                     label="Aceptó los términos y condiciones"
                     {...register("checkTerms", {
-                      required: "Debes de aceptar los terminos y condiciones",
+                      required: "Debes de aceptar los terminos y condiciones.",
                     })}
                   />
                   <Form.Text className="text-danger" type="invalid">
