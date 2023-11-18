@@ -1,0 +1,18 @@
+.chickienRegister {
+  filter: drop-shadow(5px 5px 10px #ffbe0f);
+  transition: 1s;
+}
+.chickienRegister:hover {
+  transform: scale(0.9) 
+}
+
+.formRegister .btnSubmit {
+  background-color: #fa1e0e;
+  border-color: #fa1e0e;
+}
+
+.formRegister .btnSubmit:hover,
+.formRegister .btnSubmit:focus {
+  background-color: #bd2000;
+  border-color: #bd2000;
+}
