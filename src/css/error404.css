@@ -1,0 +1,13 @@
+.error-text {
+  color: #fd1d1d;
+}
+
+.btnGoBack {
+  background-color: #fd1d1d;
+  color: #ffff;
+}
+.btnGoBack:hover,
+.btnGoBack:focus {
+  background-color: #bd2000;
+  color: #ffff;
+}
